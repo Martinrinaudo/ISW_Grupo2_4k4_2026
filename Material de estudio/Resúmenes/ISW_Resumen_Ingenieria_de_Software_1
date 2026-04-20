@@ -1,0 +1,97 @@
+# Ingeniería de Software. 
+**Libro Ingeniería de Software de Ian Sommerville.**
+**Libro Ingeniería de Software de Roger Pressman**
+
+## Ian Sommerville. 
+
+Los sistemas de #software son abstractos e intangibles, eso significa que las leyes que rigen a los materiales, a estos no los afecta. Esto puede llevar a que los mismos se vuelvan muy complejos, difíciles de entender y costosos de cambiar. 
+
+## Desarrollo de software profesional. 
+El software profesional, destinado a usarse por alguien más aparte de su programador, se lleva a cabo en general por equipos, en vez de individualmente. Se mantiene y cambia a lo largo de su vida. 
+Cuando se habla de Ingeniería de Software, no solo se refiere a los programas en sí, sino también a toda la documentación asociada y los datos de configuración requeridos para hacer que estos programas operen de manera correcta. 
+
+> ¿Que es Software? -> Programas de cómputo y documentación asociada. Los productos de software se desarrollan para un cliente en particular o para un mercado en general. 
+> Atributos de un buen Software -> Entrega al usuario funcionalidad y desempeño requeridos, sustentable, confiable y utilizable. 
+> Diferencias entre Ingeniería de software y Ingeniería de sistemas -> Sistemas se interesa por todos los aspectos relacionados al desarrollo de sistemas ya sea desde software a hardware, mientras que Ing. de Software es parte de este proceso más general. 
+
+**Tipos de productos de Software.**
+1. Productos genéricos. 
+2. Productos personalizados. 
+
+Actualmente se construye #software a partir de un producto genérico que sirve como base, y a este se lo re-acondiciona con los requerimientos del cliente. Estos son los sistemas Enterprise Resource Planning. 
+#Calidad de #software : Esto no solo se relaciona con lo que hace el #software. Sino que también abarca el comportamiento del #software mientras se ejecuta, la estructura, la organización de los programas del sistema y la documentación asociada, que esto es lo que se denomina atributos no funcionales del #software 
+
+## Ingeniería de software. 
+
+1. *Disciplina de ingeniería:* Los ingenieros hacen que las cosas funcionen, buscando soluciones, ya sean a partir de una teoría o sin ella. Donde estas soluciones rigen bajo lineamientos con los que se trabaja. 
+2. *Todos los aspectos de la producción del software:* No solo se interesa por los procesos técnicos del desarrollo de #software, sino que incluye la administración del proyecto de #software y el desarrollo de herramientas. 
+
+Enfoque sistemático que se usa, se llama proceso de #software. 
+1. *Especificación del software:* Clientes e ingenieros definen el software a producir y las restricciones en su operación. 
+2. *Desarrollo del software:* Diseño y programa.
+3. *Validación del software:* Verifica el software para asegurar que sea lo que el cliente quiere. 
+4. *Evolución del software:* Se modifica el software para reflejar los requerimientos cambiantes del cliente y del mercado. 
+Las actividades se pueden detallar y organizar de forma diferente, dependiendo el tipo de software a desarrollar. 
+**Problemas que afectan.**
+	1. *Heterogeneidad (Sistemas distribuidos)* 
+	2. *Cambio empresarial y social.*
+	3. *Seguridad y confianza.*
+
+## Roger Pressman. 
+
+### Definición del Software
+- Instrucciones que cuando se ejecutan proporcionan las características, función y desempeño buscados; Estructuras de datos que permiten que los programas manipulen en forma adecuada la información, y información descriptiva tanto en papel como en formas virtuales que describen la operación y uso de los programas. 
+#software -> Elemento de un sistema lógico, no físico.
+
+El software no se desgasta, pero si se deteriora. El software sufrirá cambios, al implementar estos cambios, puede ser que se introduzcan errores, lo que va a provocar que la curva de tasa de fallas tenga aumentos súbitos, pero antes de que la curva vuelva a su estado estable, nace otro cambio que se debe aplicar, esto conlleva a que la curva se dispare otra vez, haciendo que el software se deteriore por los cambios. 
+![[Pasted image 20260320185419.png|308]]
+
+### Software Heredado.
+El software heredado, fueron desarrollados hace muchísimo tiempo. Se caracterizan por su #longevidad e #importancia crítica para el negocio. 
+Estos mismos llevan de la mano muchos #problemas, como: código confuso, mala o nula documentación, historia de cambios mal administrada. ¿Que hacer con ellos? *Nada*, si satisface las necesidades de los usuarios y corre de manera confiable. 
+
+### Ingeniería de Software.
+- Se sabe que las personas que se dedican a la creación de Software se volvió grande, pero no todos lo hacen de forma correcta y prolija. Lo que se debe realizar es un esfuerzo concertado para entender el problema antes de desarrollar una aplicación de software.
+- Requerimientos de tecnologías demandadas, negocios, gobiernos cada vez mas complejos. Para poder corresponder a todo de manera correcta, y lograr un funcionamiento e buena interacción entre las partes del sistema, se tiene que *diseñar*, siendo esta actividad cada vez más crucial. 
+- Todo depende del software, gobiernos, empresas, todo utiliza el software para tomar decisiones como para llevarlas adelante, es decir que si este falla, todo falla. Es por esto que *el software debe tener una alta calidad*.
+- Al aumentar el valor de una aplicación, su cantidad de usuarios y longevidad también va a aumentar, su demanda para adaptarla y mejorarla también van a crecer. Es por esto que *el software debe tener facilidad para recibir mantenimiento.*
+***La ingeniería de software es: 1) La aplicación de un enfoque sistemático, disciplinado y cuantificable al desarrollo, operación y mantenimiento de software; es decir aplicar Ingeniería al software.***
+
+### El Proceso del Software. 
+En la ingeniería de software, el #proceso no es una prescripción rígida, si no que se puede ajustar a cada proyecto en particular, que permite que las personas que hacen su trabajo busquen y elijan el conjunto apropiado de acciones y tareas para el trabajo. El #proceso consta de 5 actividades.
+
+***Actividades Estructurales.***
+	1. **Comunicación:** Antes de comenzar, tiene una gran importancia el comunicarse y colaborar con el cliente. Esto se hace para entender los objetivos de los participantes, y los requerimientos que ayuden a definir las características y funciones del software. 
+	2. **Planeación:** Definición y descripción de las tareas técnicas por realizar, los riesgos probables, los recursos que se requieren, los productos del trabajo que se obtendrán y una programación de las actividades. 
+	3. **Modelado:** Crear modelos para entender mejor los requerimientos del software y el diseño que los satisfará.
+	4. **Construcción:** Combina la generación de código y las pruebas que se requieren para descubrir errores en éste. 
+	5. **Despliegue:** El software se entrega al cliente para que sea evaluado y se obtenga una retroalimentación. 
+
+***Actividades Sombrilla.***
+	1. **Seguimiento y control del proyecto de software:** Permite evaluar el proceso comparándolo con el plan del proyecto, permitiendo tomar cualquier acción para apegarse a la programación de actividades. 
+	2. **Administración del riesgo:** Evalúa los riesgos que puedan afectar el resultado del proyecto. 
+	3. **Aseguramiento de la calidad del software:** Define y ejecuta las actividades requeridas para garantizar la calidad del software. 
+	4. **Revisiones técnicas:** Evalúa los productos del trabajo de la ingeniería de software a fin de descubrir y eliminar errores antes de que se los pasen a la siguiente actividad. 
+	5. **Medición:** Define y reúne mediciones del proceso, proyecto y producto para ayudar al equipo a entregar el software que satisfaga las necesidades de los involucrados. 
+	6. **Administración de la configuración del software:** Administra los efectos del cambio. 
+	7. **Administración de la reutilización:** Define criterios para volver a usar el producto del trabajo y establece mecanismos para obtener componentes reutilizables. 
+	8. **Preparación y producción del producto del trabajo:** Agrupa actividades para crear productos, como modelos, documentos, registros, formatos y listas. 
+
+
+### Principios generales. 
+Siete principios que se centran en la práctica de la ingeniería de software como un todo. 
+1. *La razón de que exista todo*
+	Un sistema de software existe por una razón: *dar valor a sus usuarios*. Todas las decisiones deben tomarse teniendo esto en mente. 
+2. *MSE (Mantenlo sencillo, estúpido...)*
+	Que los diseños sean simples permite que el sistema sea comprendido de una manera más fácil y que sea susceptible a recibir mantenimiento. 
+3. *Mantener la visión*
+	Tener un arquitecto que pueda mantener la visión y que obligue a su cumplimiento garantiza un proyecto de software muy exitoso. 
+4. *Otros consumirán lo que usted produce.*
+	Diseñar, implementar, desarrollar pensando en que alguien más va a ser quien mantendrá su sistema y debe entender lo que hizo. Hacer que el trabajo del otro sea más fácil agrega valor al sistema. 
+5. *Ábrase al futuro.*
+	Para que un sistema tenga una larga vida útil se debe lograr que sea fácil de adaptar a los cambios. Siendo que se debe diseñar desde el principio, no sobre algo ya iniciado. 
+6. *Planee por anticipado la reutilización.*
+	La reutilización ahorra tiempo y esfuerzo. Siendo una de los aspectos mas dificiles reutilizar código y diseños, además de ser uno de los beneficios más grandes. 
+7. *¡Piense!*
+	Pensar antes de emprender la acción casi siempre produce los mejores resultados, hasta fallando, ya que este lleva al aprendizaje. 
+
