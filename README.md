@@ -73,4 +73,4 @@ ISW_Grupo2_4k4_2026/
 
 ## Criterio de línea base
 
-Se establecerá una línea base cada vez que se obtenga una retroalimentación sobre las entregas realizadas de los trabajos prácticos evaluables, y posteriormente a haber pasado una instancia de evaluación.
+Se establecerá una línea base cada vez que se obtenga una retroalimentación sobre las entregas realizadas de los trabajos prácticos evaluables.
