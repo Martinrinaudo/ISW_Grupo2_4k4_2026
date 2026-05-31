@@ -1,3 +1,5 @@
+// Caso de uso: validar solicitud, enviar mail y registrar cupos
+
 import { CUPO_POR_ACTIVIDAD, DIAS_ANTICIPACION_MIN } from "./constantes";
 import type { Mailer } from "./mailer-port";
 import type { Reloj, RepositorioCupos } from "./memoria";
@@ -51,7 +53,7 @@ export class InscripcionService {
       participantes: [...solicitud.participantes],
       idInscripcion: crypto.randomUUID(),
     };
-    // mail antes de cupos
+    // primero el mail; si falla no consumimos cupo
     await this.mailer.enviarConfirmacion(
       solicitud.emailVisitante,
       confirmada

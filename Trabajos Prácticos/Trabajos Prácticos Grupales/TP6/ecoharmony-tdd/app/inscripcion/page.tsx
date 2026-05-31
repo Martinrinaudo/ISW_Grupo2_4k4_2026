@@ -1,6 +1,7 @@
 import { InscripcionForm } from "@/components/InscripcionForm";
 import { smtpConfigurado } from "@/lib/ecoharmony/mailer-smtp";
 
+/** Pantalla /inscripcion — avisa si el mail va a consola o SMTP */
 export default function InscripcionPage() {
   const mailReal = smtpConfigurado();
 

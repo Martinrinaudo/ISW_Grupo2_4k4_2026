@@ -1,5 +1,7 @@
 "use server";
 
+// Server actions: delegan en el dominio y devuelven ok/error para la UI
+
 import { getServicio } from "@/lib/ecoharmony/memoria";
 import { smtpConfigurado } from "@/lib/ecoharmony/mailer-smtp";
 import { ErrorInscripcion } from "@/lib/ecoharmony/types";

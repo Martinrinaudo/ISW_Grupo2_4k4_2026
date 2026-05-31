@@ -1,5 +1,7 @@
 "use client";
 
+// Formulario de inscripción — US TP2, conectado a server actions
+
 import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   confirmarInscripcion,
@@ -29,7 +31,7 @@ function participantesVacios(n: number): Participante[] {
   }));
 }
 
-/** Formulario inscripción */
+/** Formulario principal: actividad, turno, participantes, TyC y mail */
 export function InscripcionForm() {
   const [actividad, setActividad] = useState<Actividad>("Safari");
   const [fecha, setFecha] = useState("2026-05-27");

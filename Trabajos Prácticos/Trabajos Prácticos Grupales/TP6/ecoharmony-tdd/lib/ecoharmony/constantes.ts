@@ -1,6 +1,7 @@
+// Cupos, horarios y TyC — detalle en docs/decisiones-tp6-tdd.md
+
 import type { Actividad, Talle } from "./types";
 
-// Valores provisionales — ver docs/decisiones-tp6-tdd.md
 export const ACTIVIDADES: Actividad[] = [
   "Tirolesa",
   "Safari",

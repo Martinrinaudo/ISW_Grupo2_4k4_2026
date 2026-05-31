@@ -1,3 +1,5 @@
+// Tipos del dominio y errores de inscripción
+
 export type Actividad = "Tirolesa" | "Safari" | "Palestra" | "Jardinería";
 
 export type Talle = "XS" | "S" | "M" | "L" | "XL" | "XXL";

@@ -1,3 +1,5 @@
+// Validaciones de horario, cupos y participantes
+
 import {
   ACTIVIDADES_CON_TALLE,
   DURACION_TURNO_MIN,
@@ -23,6 +25,7 @@ export function parseFecha(iso: string): Date {
   return new Date(y, m - 1, d);
 }
 
+/** Lunes y feriados 25/12 y 1/1 */
 export function parqueCerrado(fechaIso: string): boolean {
   const fecha = parseFecha(fechaIso);
   if (fecha.getDay() === 1) return true;

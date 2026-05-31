@@ -7,6 +7,7 @@ interface Props {
   onCerrar: () => void;
 }
 
+/** Modal con las cláusulas del TyC (7 del material) */
 export function TyCModal({ abierto, onCerrar }: Props) {
   if (!abierto) return null;
 

@@ -1,3 +1,5 @@
+// Texto del mail de confirmación (compartido por consola y SMTP)
+
 import type { InscripcionConfirmada } from "./types";
 
 export function cuerpoCorreo(inscripcion: InscripcionConfirmada): string {

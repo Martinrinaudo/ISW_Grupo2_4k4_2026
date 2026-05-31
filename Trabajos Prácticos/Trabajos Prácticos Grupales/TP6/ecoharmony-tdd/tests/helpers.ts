@@ -1,3 +1,5 @@
+// Armado de solicitudes y servicio de test (reloj fijo + mail mock)
+
 import { cuposDisponiblesLabel } from "@/lib/ecoharmony/reglas";
 import { MailerRegistro } from "@/lib/ecoharmony/mailer-port";
 import {

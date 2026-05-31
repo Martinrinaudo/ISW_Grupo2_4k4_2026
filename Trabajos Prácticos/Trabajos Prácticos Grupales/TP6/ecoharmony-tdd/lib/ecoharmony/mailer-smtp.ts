@@ -1,3 +1,5 @@
+// Mail real con nodemailer si hay .env.local
+
 import nodemailer from "nodemailer";
 import { cuerpoCorreo } from "./mailer-contenido";
 import type { Mailer } from "./mailer-port";

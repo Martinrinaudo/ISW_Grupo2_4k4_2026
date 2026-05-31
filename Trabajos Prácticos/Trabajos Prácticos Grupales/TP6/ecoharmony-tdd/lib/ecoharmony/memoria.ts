@@ -1,4 +1,8 @@
+// Reloj, cupos en memoria y armado del servicio (app vs tests)
+
 import { FECHA_HOY_APP } from "./fecha-app";
+import { MailerConsola } from "./mailer-consola";
+import { MailerSmtp, smtpConfigurado } from "./mailer-smtp";
 import { InscripcionService } from "./inscripcion-service";
 import type { Turno } from "./types";
 
@@ -42,6 +46,25 @@ export class RepositorioCuposMemoria implements RepositorioCupos {
   }
 }
 
+function crearMailerApp(): Mailer {
+  return smtpConfigurado() ? new MailerSmtp() : new MailerConsola();
+}
+
+let servicioApp: InscripcionService | null = null;
+
+/** Singleton para la app Next.js */
+export function getServicio(): InscripcionService {
+  if (!servicioApp) {
+    servicioApp = new InscripcionService(
+      new RelojFijo(FECHA_HOY_APP),
+      new RepositorioCuposMemoria(),
+      crearMailerApp()
+    );
+  }
+  return servicioApp;
+}
+
+/** Para tests: inyectamos reloj, cupos y mailer mock */
 export function crearServicio(
   reloj?: Reloj,
   cupos?: RepositorioCupos,

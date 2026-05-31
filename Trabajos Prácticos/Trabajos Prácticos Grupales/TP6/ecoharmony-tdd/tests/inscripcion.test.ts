@@ -16,6 +16,8 @@ import {
 } from "./helpers";
 
 describe("Inscripción a actividad", () => {
+  // --- 6 pruebas de usuario del enunciado ---
+
   it("prueba 1 pasa: inscripción exitosa envía mail", async () => {
     const { servicio, mailer } = setupTest();
     const resultado = await servicio.inscribir(solicitudOk());
@@ -100,6 +102,8 @@ describe("Inscripción a actividad", () => {
       })
     );
   });
+
+  // --- reglas asumidas (ver decisiones-tp6-tdd.md) ---
 
   it("regla: edad mínima Tirolesa", async () => {
     const { servicio } = setupTest();

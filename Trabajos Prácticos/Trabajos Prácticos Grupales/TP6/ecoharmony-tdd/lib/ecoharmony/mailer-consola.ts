@@ -1,3 +1,5 @@
+// Fallback sin SMTP: imprime el mail en la terminal del servidor
+
 import { cuerpoCorreo } from "./mailer-contenido";
 import type { Mailer } from "./mailer-port";
 import type { InscripcionConfirmada } from "./types";
