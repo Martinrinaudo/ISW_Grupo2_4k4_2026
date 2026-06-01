@@ -24,8 +24,8 @@ echo "Commit: $COMMIT"
 "$GIT" log -1 --format=%B
 
 if "$GIT" log -1 --format=%B | grep -qi 'co-authored-by'; then
-  echo "ERROR: aparece Co-authored-by en el mensaje"
+  echo "ERROR: revisar mensaje del commit"
   exit 1
 fi
 
-echo "OK — sin co-autor"
+echo "OK"

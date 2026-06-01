@@ -42,7 +42,7 @@ COMMIT=$("$GIT" commit-tree "$TREE" -p "$PARENT" -m "$MSG")
 "$GIT" reset --hard
 
 if "$GIT" log -1 --format=%B | grep -qi 'co-authored-by'; then
-  echo "ERROR: Co-authored-by en el commit"
+  echo "ERROR: revisar mensaje del commit"
   exit 1
 fi
 

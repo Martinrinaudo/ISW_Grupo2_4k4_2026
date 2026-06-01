@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { cuerpoCorreo } from "@/lib/ecoharmony/mailer-contenido";
+import { asuntoCorreo, cuerpoCorreo } from "@/lib/ecoharmony/mailer-contenido";
 import type { InscripcionConfirmada } from "@/lib/ecoharmony/types";
 
 describe("cuerpo del mail de confirmación", () => {
@@ -10,6 +10,10 @@ describe("cuerpo del mail de confirmación", () => {
       { nombre: "Ana López", dni: "30111222", edad: 25 },
     ],
   };
+
+  it("asunto incluye la actividad", () => {
+    expect(asuntoCorreo("Palestra")).toBe("Inscripción confirmada — Palestra");
+  });
 
   it("incluye actividad, fecha, horario e ID", () => {
     const texto = cuerpoCorreo(inscripcion);

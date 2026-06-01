@@ -1,4 +1,4 @@
-# Copia TP6 al monorepo del grupo y pushea sin Co-authored-by Cursor
+# Copia TP6 al monorepo del grupo y pushea
 
 $ErrorActionPreference = "Stop"
 $Proyecto = "C:\Users\Matias\ecoharmony-tdd-git"

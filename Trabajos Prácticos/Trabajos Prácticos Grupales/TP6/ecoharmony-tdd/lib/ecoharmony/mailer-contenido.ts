@@ -1,6 +1,10 @@
 // Texto del mail de confirmación (compartido por consola y SMTP)
 
-import type { InscripcionConfirmada } from "./types";
+import type { Actividad, InscripcionConfirmada } from "./types";
+
+export function asuntoCorreo(actividad: Actividad): string {
+  return `Inscripción confirmada — ${actividad}`;
+}
 
 export function cuerpoCorreo(inscripcion: InscripcionConfirmada): string {
   const { turno, participantes, idInscripcion } = inscripcion;

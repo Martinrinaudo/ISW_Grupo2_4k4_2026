@@ -1,27 +1,38 @@
 # Mail de confirmación
 
-## Sin SMTP (por defecto)
+## Quién configura qué
 
-No hace falta configurar nada. Al confirmar una inscripción:
+| Qué | Quién |
+|-----|--------|
+| **Tests** (`npm test`) | Nadie configura nada. Usan mock y revisan destino, asunto y cuerpo del mail. |
+| **SMTP real** (demo / entrega con mail que llega) | **Uno del grupo** arma `.env.local` en su máquina (o una cuenta compartida). No va al repo. |
 
-- La pantalla avisa que el mail no está configurado.
-- El cuerpo del mensaje se imprime en la **consola** donde corre `npm run dev`.
+No hace falta que todos tengan Gmail: alcanza con que quien muestre la app tenga el `.env.local`.
 
-La inscripción **no se cancela** por falta de mail.
+## SMTP real (para que llegue el mail)
 
-## Con SMTP (opcional)
+1. Copiar `.env.example` → `.env.local` en la raíz del proyecto.
+2. Cuenta con SMTP (Gmail + contraseña de aplicación es lo más común).
+3. Completar `SMTP_HOST`, `SMTP_USER`, `SMTP_PASS`, `SMTP_FROM`.
+4. Reiniciar `npm run dev`.
 
-1. Copiá `.env.example` a `.env.local` en la raíz del proyecto.
-2. Completá usuario y contraseña (en Gmail suele ser “contraseña de aplicación”).
-3. Reiniciá `npm run dev`.
+**No subir** `.env.local` a GitHub.
 
-Variables:
+### Gmail rápido
 
-- `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`
-- `SMTP_FROM` — lo que ve el destinatario
+- Cuenta Google con verificación en 2 pasos.
+- Contraseña de aplicación (16 caracteres) → va en `SMTP_PASS`.
+- `SMTP_HOST=smtp.gmail.com`, `SMTP_PORT=587`.
 
-**No subas** `.env.local` a GitHub (ya está en `.gitignore`).
+## Sin `.env.local`
 
-## Tests
+La inscripción funciona igual; el texto del mail sale en la **consola** del `npm run dev` y hay aviso en pantalla. Sirve para desarrollar sin cuenta.
 
-Los tests no usan SMTP; solo revisan que se arma bien `cuerpoCorreo` y que el mock recibe el envío.
+## Tests (lo que pide la cátedra)
+
+Salva dijo: en unitarios **mockear** el envío pero **testear el mensaje**. Por eso:
+
+- `tests/mailer-contenido.test.ts` — contenido del cuerpo.
+- `tests/mail-inscripcion.test.ts` — destino, asunto, cuerpo al inscribir; sin mail si falla; sin cupos si falla el envío.
+
+No se usa SMTP en CI ni en `npm test`.

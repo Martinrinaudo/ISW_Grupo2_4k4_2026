@@ -1,7 +1,7 @@
 // Mail real con nodemailer si hay .env.local
 
 import nodemailer from "nodemailer";
-import { cuerpoCorreo } from "./mailer-contenido";
+import { asuntoCorreo, cuerpoCorreo } from "./mailer-contenido";
 import type { Mailer } from "./mailer-port";
 import type { InscripcionConfirmada } from "./types";
 
@@ -38,7 +38,7 @@ export class MailerSmtp implements Mailer {
     await transporter.sendMail({
       from,
       to: email,
-      subject: `Inscripción confirmada — ${inscripcion.turno.actividad}`,
+      subject: asuntoCorreo(inscripcion.turno.actividad),
       text: cuerpoCorreo(inscripcion),
     });
   }

@@ -1,5 +1,5 @@
 # Corrige carpeta duplicada por encoding (Trabajos PrÃ¡cticos -> Trabajos Prácticos)
-# Ejecutar en Windows Terminal (no Cursor):
+# Ejecutar en PowerShell:
 #   powershell -NoProfile -ExecutionPolicy Bypass -File "C:\Users\Matias\ecoharmony-tdd-git\fix-ruta-grupo.ps1"
 
 $ErrorActionPreference = "Stop"

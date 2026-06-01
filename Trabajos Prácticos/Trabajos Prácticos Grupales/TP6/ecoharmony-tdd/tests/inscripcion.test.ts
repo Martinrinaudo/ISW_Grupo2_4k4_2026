@@ -23,8 +23,8 @@ describe("Inscripción a actividad", () => {
     expect(resultado.participantes[0].nombre).toBe("Ana López");
     expect(mailer.envios).toHaveLength(1);
     expect(mailer.envios[0].email).toBe("ana@mail.com");
-    expect(cuerpoCorreo(resultado)).toContain(resultado.idInscripcion);
-    expect(cuerpoCorreo(resultado)).toContain("Safari");
+    expect(mailer.envios[0].cuerpo).toBe(cuerpoCorreo(resultado));
+    expect(mailer.envios[0].cuerpo).toContain("Safari");
   });
 
   it("prueba 2 falla: sin cupo para el horario", async () => {

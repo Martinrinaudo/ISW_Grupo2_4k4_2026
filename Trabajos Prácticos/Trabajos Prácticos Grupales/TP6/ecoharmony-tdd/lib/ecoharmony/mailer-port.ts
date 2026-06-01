@@ -1,5 +1,6 @@
-// Puerto de mail — en tests usamos MailerRegistro
+// Puerto de mail — en tests usamos MailerRegistro (mismo cuerpo que SMTP)
 
+import { asuntoCorreo, cuerpoCorreo } from "./mailer-contenido";
 import type { InscripcionConfirmada } from "./types";
 
 export interface Mailer {
@@ -9,14 +10,33 @@ export interface Mailer {
   ): Promise<void>;
 }
 
-/** Guarda envíos en memoria para assert en Vitest */
+export type EnvioRegistrado = {
+  email: string;
+  inscripcion: InscripcionConfirmada;
+  asunto: string;
+  cuerpo: string;
+};
+
+/** Mock: registra destino, asunto y cuerpo como en producción */
 export class MailerRegistro implements Mailer {
-  envios: Array<{ email: string; inscripcion: InscripcionConfirmada }> = [];
+  envios: EnvioRegistrado[] = [];
 
   async enviarConfirmacion(
     email: string,
     inscripcion: InscripcionConfirmada
   ): Promise<void> {
-    this.envios.push({ email, inscripcion });
+    this.envios.push({
+      email,
+      inscripcion,
+      asunto: asuntoCorreo(inscripcion.turno.actividad),
+      cuerpo: cuerpoCorreo(inscripcion),
+    });
+  }
+}
+
+/** Para tests: simula fallo de SMTP */
+export class MailerFalla implements Mailer {
+  async enviarConfirmacion(): Promise<void> {
+    throw new Error("No se pudo enviar el correo");
   }
 }

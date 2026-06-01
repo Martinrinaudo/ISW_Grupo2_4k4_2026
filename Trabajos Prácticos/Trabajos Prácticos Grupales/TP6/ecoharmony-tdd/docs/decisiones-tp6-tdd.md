@@ -32,9 +32,9 @@ Flujo al confirmar: validar → mail → descontar cupos.
 
 ## Mail
 
-- Tests: `MailerRegistro` (lista en memoria).
-- Test del texto: `tests/mailer-contenido.test.ts` (`cuerpoCorreo`).
-- App: SMTP si hay `.env.local`; si no, `MailerConsola` (no bloquea la inscripción).
+- Tests: `MailerRegistro` guarda email, asunto y cuerpo (misma lógica que SMTP). Ver `tests/mail-inscripcion.test.ts` y `tests/mailer-contenido.test.ts`.
+- App: SMTP si hay `.env.local` (lo configura quien haga la demo); si no, `MailerConsola`.
+- Si falla el envío, no se descuentan cupos.
 
 ## UI (sin tests automatizados)
 

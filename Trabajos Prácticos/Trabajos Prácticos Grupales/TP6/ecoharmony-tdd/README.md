@@ -38,12 +38,13 @@ Detalle y arquitectura: [`docs/decisiones-tp6-tdd.md`](docs/decisiones-tp6-tdd.m
 
 ## Mail
 
-- **Sin configurar:** la inscripción igual funciona; el texto de confirmación sale en la consola del servidor y hay un aviso en pantalla.
-- **Con SMTP:** copiá `.env.example` a `.env.local` — ver [`docs/CONFIGURACION-MAIL.md`](docs/CONFIGURACION-MAIL.md).
+- **Tests:** no necesitan `.env`; cubren destino, asunto y cuerpo del mail con mock.
+- **Demo con mail que llega:** **uno del grupo** configura `.env.local` (SMTP). Ver [`docs/CONFIGURACION-MAIL.md`](docs/CONFIGURACION-MAIL.md). El resto solo clona y corre tests/UI.
+- **Sin `.env`:** inscripción OK; el mail se ve en la consola del servidor.
 
 ## Tests
 
-`npm test` corre el backend (16 tests): las 6 pruebas de usuario del enunciado + reglas (edad, 24 hs, cupos, feriados, cuerpo del mail). El mail real no se usa en tests.
+`npm test` — backend (~20 tests): 6 PO del enunciado + reglas + **mail** (cuerpo, asunto, no enviar si falla, no cupos si falla SMTP).
 
 ## Carpetas
 
@@ -57,9 +58,5 @@ docs/               instalación, mail, decisiones
 
 ## Más info para el grupo
 
-- [`docs/GUIA-RAPIDA-GRUPO.md`](docs/GUIA-RAPIDA-GRUPO.md) — día a día, commits, qué no subir
-- [`docs/INSTALACION-WINDOWS.md`](docs/INSTALACION-WINDOWS.md) — si algo no instala
-
-## Commits al repo del grupo
-
-No uses `git commit` desde Cursor en el monorepo del grupo (agrega co-autor). Usá `scripts/commit-limpio.sh` — está explicado en la guía rápida.
+- [`docs/GUIA-RAPIDA-GRUPO.md`](docs/GUIA-RAPIDA-GRUPO.md) — día a día, qué no subir
+- [`docs/INSTALACION-WINDOWS.md`](docs/INSTALACION-WINDOWS.md) — si algo no instila
