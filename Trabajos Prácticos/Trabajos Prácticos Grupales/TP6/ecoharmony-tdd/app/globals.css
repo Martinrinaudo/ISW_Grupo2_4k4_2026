@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+:root {
+  --eco-bg: #e8f5e9;
+  --eco-card: #ffffff;
+  --eco-primary: #2e7d32;
+  --eco-primary-dark: #1b5e20;
+  --eco-muted: #558b2f;
+  --eco-error: #b71c1c;
+  --eco-error-bg: #ffebee;
+  --eco-success-bg: #e8f5e9;
+}
+
+body {
+  background: linear-gradient(160deg, var(--eco-bg) 0%, #c8e6c9 50%, #a5d6a7 100%);
+  min-height: 100vh;
+}
