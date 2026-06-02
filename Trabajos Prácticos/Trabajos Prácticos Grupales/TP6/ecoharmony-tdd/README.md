@@ -34,7 +34,7 @@ Abrí http://localhost:3000/inscripcion
 | Anticipación | 24 hs antes del turno (fecha + hora) |
 | Talle | Palestra y Tirolesa (XS–XXL) |
 
-Detalle y arquitectura: [`docs/decisiones-tp6-tdd.md`](docs/decisiones-tp6-tdd.md). Números en código: `lib/ecoharmony/constantes.ts`.
+Documento de diseño (entrega): [`docs/ISW_TP_6.html`](docs/ISW_TP_6.html) · PDF en `../ISW_TP_6.pdf`. Resumen: [`docs/decisiones-tp6-tdd.md`](docs/decisiones-tp6-tdd.md). Números en código: `lib/ecoharmony/constantes.ts`.
 
 ## Mail
 
