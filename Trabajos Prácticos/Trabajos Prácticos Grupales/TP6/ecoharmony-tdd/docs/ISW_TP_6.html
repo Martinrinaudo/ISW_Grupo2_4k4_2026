@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ISW TP6 — EcoHarmony TDD — Grupo 2</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 18mm 15mm;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      font-size: 11pt;
+      line-height: 1.45;
+      color: #111;
+      margin: 0;
+      padding: 0;
+    }
+
+    .doc {
+      max-width: 210mm;
+      margin: 0 auto;
+      padding: 12mm 10mm 20mm;
+    }
+
+    h1 {
+      font-size: 16pt;
+      margin: 0 0 0.4em;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 13pt;
+      margin: 1.4em 0 0.5em;
+      border-bottom: 1px solid #333;
+      padding-bottom: 0.2em;
+      page-break-after: avoid;
+    }
+
+    h3 {
+      font-size: 11.5pt;
+      margin: 1em 0 0.35em;
+      page-break-after: avoid;
+    }
+
+    p {
+      margin: 0.4em 0 0.6em;
+    }
+
+    .meta {
+      font-size: 10.5pt;
+      margin-bottom: 1.2em;
+    }
+
+    .meta dt {
+      font-weight: 600;
+      display: inline;
+    }
+
+    .meta dt::after {
+      content: " ";
+    }
+
+    .meta dd {
+      display: inline;
+      margin: 0 1em 0 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10pt;
+      margin: 0.6em 0 1em;
+      page-break-inside: avoid;
+    }
+
+    thead {
+      display: table-header-group;
+    }
+
+    th,
+    td {
+      border: 1px solid #444;
+      padding: 0.35em 0.5em;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #eee;
+      font-weight: 600;
+    }
+
+    tr {
+      page-break-inside: avoid;
+    }
+
+    ul,
+    ol {
+      margin: 0.3em 0 0.8em 1.2em;
+      padding: 0;
+    }
+
+    li {
+      margin: 0.2em 0;
+    }
+
+    .portada {
+      text-align: center;
+      padding: 8mm 0 12mm;
+      page-break-after: always;
+    }
+
+    .portada .sub {
+      font-size: 12pt;
+      margin-top: 0.5em;
+    }
+
+    .portada .materia {
+      font-size: 11pt;
+      margin-top: 2em;
+    }
+
+    .flow {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 10pt;
+      background: #f5f5f5;
+      border: 1px solid #999;
+      padding: 0.6em 0.8em;
+      margin: 0.6em 0;
+      page-break-inside: avoid;
+    }
+
+    .checklist {
+      list-style: none;
+      margin-left: 0;
+      padding-left: 0;
+    }
+
+    .checklist li::before {
+      content: "☑ ";
+    }
+
+    .note {
+      font-size: 10pt;
+      border-left: 3px solid #666;
+      padding-left: 0.8em;
+      margin: 0.8em 0;
+    }
+
+    .no-print {
+      text-align: center;
+      margin: 1em 0 2em;
+    }
+
+    .no-print button {
+      font-size: 12pt;
+      padding: 0.5em 1.2em;
+      cursor: pointer;
+    }
+
+    @media print {
+      .no-print {
+        display: none;
+      }
+
+      .doc {
+        padding: 0;
+        max-width: none;
+      }
+
+      a[href]::after {
+        content: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="no-print">
+    <button type="button" onclick="window.print()">Imprimir / Guardar como PDF</button>
+    <p style="font-size:10pt;color:#444;">En el diálogo de impresión: papel A4, márgenes predeterminados. Guardar como <strong>ISW_TP_6.pdf</strong> para Moodle.</p>
+  </div>
+
+  <div class="doc">
+    <section class="portada">
+      <h1>Trabajo Práctico 6 — Test Driven Development</h1>
+      <p class="sub">Práctico 13 · EcoHarmony Park · User Story: Inscribirme a actividad</p>
+      <p class="materia">
+        Ingeniería y Calidad de Software — 4K4 (2026)<br />
+        Grupo 2 (número par)
+      </p>
+      <p style="margin-top:2em;font-size:10.5pt;">
+        Docentes: Ing. Constanza Garnero · Ing. Laura Covaro<br />
+        Ayudante: Salvador Barbera
+      </p>
+      <p style="margin-top:1.5em;font-size:10.5pt;">Fecha de entrega: junio 2026</p>
+      <p style="margin-top:2em;font-size:10pt;text-align:left;max-width:95%;margin-left:auto;margin-right:auto;">
+        Repositorio: <a href="https://github.com/Martinrinaudo/ISW_Grupo2_4k4_2026">github.com/Martinrinaudo/ISW_Grupo2_4k4_2026</a><br />
+        Código: <code>Trabajos Prácticos/Trabajos Prácticos Grupales/TP6/ecoharmony-tdd/</code>
+      </p>
+
+      <h2 style="border:none;margin-top:2.5em;text-align:left;font-size:12pt;">Integrantes</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Legajo</th>
+            <th>Apellido y nombre</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>90639</td><td>Conterno, Tomás</td></tr>
+          <tr><td>95680</td><td>de la Vega, Federico Agustín</td></tr>
+          <tr><td>98292</td><td>Eggel, Tomás Agustín</td></tr>
+          <tr><td>93052</td><td>Escobar, Máximo Joaquín</td></tr>
+          <tr><td>91572</td><td>Escudero, Francisco Javier</td></tr>
+          <tr><td>91227</td><td>Formoso, Matias Agustin</td></tr>
+          <tr><td>95403</td><td>Franco, Martina</td></tr>
+          <tr><td>94192</td><td>Padilla, Tomas Lautaro</td></tr>
+          <tr><td>95738</td><td>Paglino, Luciano Ivo</td></tr>
+          <tr><td>89615</td><td>Rinaudo, Martín</td></tr>
+          <tr><td>97924</td><td>Zin, Cecilia Belén</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:10pt;margin-top:2em;">Trabajo grupal — ISW Grupo 2</p>
+    </section>
+
+    <h2>1. Entregables de la consigna</h2>
+    <p>El Práctico 13 (TP6 TDD) pide:</p>
+    <ul class="checklist">
+      <li>Reglas de estilo de código elegidas en el Trabajo Práctico 2 (Requerimientos Ágiles — User Stories y Estimaciones).</li>
+      <li>Implementación funcional de la user story asignada al grupo par: <strong>Inscribirme a actividad</strong>.</li>
+      <li>Conjunto de pruebas automatizadas que cubran los casos definidos (21 tests con Vitest, todos en verde).</li>
+      <li>Documento de diseño que justifique las decisiones tomadas (este archivo).</li>
+    </ul>
+    <p>Stack: Next.js 15, TypeScript, Vitest. Pantalla: <code>/inscripcion</code>.</p>
+
+    <h2>2. User story</h2>
+    <p><strong>Frase verbal:</strong> Como visitante quiero inscribirme a una actividad para reservar mi lugar en la misma.</p>
+    <p><strong>Story points (TP2):</strong> 5</p>
+    <h3>Criterios de aceptación</h3>
+    <table>
+      <thead>
+        <tr><th>#</th><th>Criterio</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Seleccionar actividad (Tirolesa, Safari, Palestra, Jardinería) con cupos en el horario elegido.</td></tr>
+        <tr><td>2</td><td>Seleccionar horario dentro de los disponibles.</td></tr>
+        <tr><td>3</td><td>Indicar cantidad de participantes.</td></tr>
+        <tr><td>4</td><td>Por participante: nombre, DNI, edad y talle si la actividad lo exige.</td></tr>
+        <tr><td>5</td><td>Aceptar términos y condiciones específicos de la actividad.</td></tr>
+        <tr><td>6</td><td>Al finalizar, enviar correo con la información de la inscripción.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>3. Reglas de negocio</h2>
+    <p>Valores confirmados por cátedra (mail del ayudante, junio 2026). Están en <code>lib/ecoharmony/constantes.ts</code>.</p>
+    <table>
+      <thead>
+        <tr><th>Tema</th><th>Regla</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Parque</td><td>Abierto 8:30 a 19:00. Cerrado lunes, 25/12 y 1/1.</td></tr>
+        <tr><td>Actividades</td><td>Horario 9:00 a 18:00; un turno por hora. No hay turno que empiece a las 18:00 (último inicio: 17:00).</td></tr>
+        <tr><td>Cupos por turno</td><td>Safari 8 · Palestra 12 · Jardinería 12 · Tirolesa 10</td></tr>
+        <tr><td>Edad mínima</td><td>Safari y Jardinería: sin mínimo. Palestra ≥ 12 años. Tirolesa ≥ 8 años.</td></tr>
+        <tr><td>Anticipación</td><td>24 horas antes del inicio del turno (fecha + hora), no dos días calendario.</td></tr>
+        <tr><td>Talle</td><td>Obligatorio en Palestra y Tirolesa (XS a XXL).</td></tr>
+        <tr><td>Términos y condiciones</td><td>Modal y textos distintos por actividad (<code>TYC_POR_ACTIVIDAD</code>).</td></tr>
+      </tbody>
+    </table>
+
+    <h2>4. Arquitectura</h2>
+    <p>Separación en tres capas para no duplicar reglas entre pantalla y dominio:</p>
+    <table>
+      <thead>
+        <tr><th>Capa</th><th>Ubicación</th><th>Responsabilidad</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Dominio</td><td><code>lib/ecoharmony/</code></td><td>Validaciones, cupos en memoria, servicio de inscripción, contenido del mail, puerto <code>Mailer</code>.</td></tr>
+        <tr><td>Aplicación / UI</td><td><code>app/inscripcion/</code>, <code>components/</code></td><td>Formulario, modal TyC, server actions; delega en el servicio.</td></tr>
+        <tr><td>Tests</td><td><code>tests/</code></td><td>Vitest solo sobre backend (pedido de cátedra). Reloj inyectable.</td></tr>
+      </tbody>
+    </table>
+  <p>Archivos principales: <code>constantes.ts</code>, <code>reglas.ts</code>, <code>inscripcion-service.ts</code>, <code>memoria.ts</code>, <code>mailer-contenido.ts</code>, <code>app/inscripcion/actions.ts</code>, <code>InscripcionForm.tsx</code>, <code>TyCModal.tsx</code>.</p>
+    <h3>Flujo al confirmar inscripción</h3>
+    <div class="flow">validar solicitud → enviar mail → descontar cupos</div>
+    <p>Si el envío de mail falla, no se descuentan cupos. En tests se usa <code>MailerRegistro</code>; en la app, SMTP con <code>.env.local</code> o <code>MailerConsola</code> si no hay credenciales.</p>
+    <p><code>Reloj</code>: <code>RelojFijo</code> en tests (fecha 20/05/2026 09:00 en <code>tests/helpers.ts</code>), <code>RelojSistema</code> en producción/demo.</p>
+
+    <h2>5. Metodología TDD</h2>
+    <p>Ciclo aplicado sobre el servicio de dominio:</p>
+    <ol>
+      <li><strong>Red:</strong> escribir un test que falla.</li>
+      <li><strong>Green:</strong> código mínimo para que pase.</li>
+      <li><strong>Refactor:</strong> mejorar diseño sin romper tests.</li>
+    </ol>
+    <p><strong>Ejemplo — anticipación 24 h:</strong> primero el test <em>regla: menos de 24 hs antes del turno</em> con turno el mismo día que el reloj fijo (falla con <code>AnticipacionInvalidaError</code>); luego <em>regla: 24 hs antes del turno alcanza</em> con turno al día siguiente (pasa y envía mail). La constante <code>ANTICIPACION_MIN_MS</code> centraliza el valor.</p>
+    <p class="note">Verificación al entregar: <code>npm test</code> — 21 tests passed (3 archivos).</p>
+
+    <h2>6. Mapa de pruebas automatizadas</h2>
+    <h3>6.1 Pruebas de usuario del enunciado (TP2)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Prueba (enunciado)</th>
+          <th>Resultado esperado</th>
+          <th>Test automatizado</th>
+          <th>Archivo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1 — Inscripción completa con mail</td>
+          <td>Pasa</td>
+          <td>prueba 1 pasa: inscripción exitosa envía mail</td>
+          <td>inscripcion.test.ts</td>
+        </tr>
+        <tr>
+          <td>2 — Sin cupo en el horario</td>
+          <td>Falla</td>
+          <td>prueba 2 falla: sin cupo para el horario</td>
+          <td>inscripcion.test.ts</td>
+        </tr>
+        <tr>
+          <td>3 — Sin talle cuando no hace falta</td>
+          <td>Pasa</td>
+          <td>prueba 3 pasa: Safari sin talle</td>
+          <td>inscripcion.test.ts</td>
+        </tr>
+        <tr>
+          <td>4 — Parque cerrado o actividad no disponible</td>
+          <td>Falla</td>
+          <td>prueba 4 falla: lunes parque cerrado; prueba 4 falla: no hay turno a las 18:00</td>
+          <td>inscripcion.test.ts</td>
+        </tr>
+        <tr>
+          <td>4 — Último turno válido</td>
+          <td>Pasa</td>
+          <td>prueba 4 pasa: último turno 17:00</td>
+          <td>inscripcion.test.ts</td>
+        </tr>
+        <tr>
+          <td>5 — Sin TyC</td>
+          <td>Falla</td>
+          <td>prueba 5 falla: sin términos y condiciones</td>
+          <td>inscripcion.test.ts</td>
+        </tr>
+        <tr>
+          <td>6 — Sin talle obligatorio</td>
+          <td>Falla</td>
+          <td>prueba 6 falla: Palestra sin talle</td>
+          <td>inscripcion.test.ts</td>
+        </tr>
+        <tr>
+          <td>6 — Con talle obligatorio</td>
+          <td>Pasa</td>
+          <td>prueba 6 pasa: Palestra con talle</td>
+          <td>inscripcion.test.ts</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>6.2 Tests adicionales y mail</h3>
+    <table>
+      <thead>
+        <tr><th>Test</th><th>Archivo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>regla: edad mínima Tirolesa</td><td>inscripcion.test.ts</td></tr>
+        <tr><td>regla: menos de 24 hs antes del turno</td><td>inscripcion.test.ts</td></tr>
+        <tr><td>regla: 24 hs antes del turno alcanza</td><td>inscripcion.test.ts</td></tr>
+        <tr><td>regla: etiqueta cupos disponibles</td><td>inscripcion.test.ts</td></tr>
+        <tr><td>regla: cantidad mayor a cupos restantes</td><td>inscripcion.test.ts</td></tr>
+        <tr><td>regla: feriado 25 diciembre cerrado</td><td>inscripcion.test.ts</td></tr>
+        <tr><td>asunto incluye la actividad</td><td>mailer-contenido.test.ts</td></tr>
+        <tr><td>incluye actividad, fecha, horario e ID</td><td>mailer-contenido.test.ts</td></tr>
+        <tr><td>envía a el email del visitante con asunto y cuerpo correctos</td><td>mail-inscripcion.test.ts</td></tr>
+        <tr><td>el cuerpo lista todos los participantes con talle si aplica</td><td>mail-inscripcion.test.ts</td></tr>
+        <tr><td>si la inscripción falla, no se envía mail</td><td>mail-inscripcion.test.ts</td></tr>
+        <tr><td>si el mail falla, no consume cupos</td><td>mail-inscripcion.test.ts</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Total:</strong> 15 + 2 + 4 = 21 tests.</p>
+
+    <h2>7. Decisiones de diseño</h2>
+    <ul>
+      <li><strong>Tests en backend:</strong> la lógica vive en <code>InscripcionService</code>; la UI no tiene tests E2E en este TP.</li>
+      <li><strong>Mail mockeado:</strong> <code>MailerRegistro</code> guarda destinatario, asunto y cuerpo; se valida con <code>cuerpoCorreo()</code> compartido con SMTP.</li>
+      <li><strong>SMTP opcional:</strong> quien haga la demo configura <code>.env.local</code> (ver <code>docs/CONFIGURACION-MAIL.md</code>); los tests no dependen de red.</li>
+      <li><strong>Cupos en memoria:</strong> al refrescar o reiniciar el servidor de desarrollo los cupos vuelven al máximo; aceptado para la consigna.</li>
+      <li><strong>TyC por actividad:</strong> textos en constantes; modal antes de confirmar.</li>
+      <li><strong>UX cupos:</strong> si la cantidad de personas supera los cupos restantes, el campo se marca en rojo con mensaje (sin test automatizado de UI).</li>
+      <li><strong>Sin validación de DNI duplicado:</strong> la US y la cátedra no lo exigen; una misma persona puede ocupar varios lugares.</li>
+    </ul>
+
+    <h2>8. Cómo ejecutar el proyecto</h2>
+    <pre class="flow" style="white-space:pre-wrap;">cd ecoharmony-tdd
+npm install
+npm test
+npm run dev</pre>
+    <p>Abrir <code>http://localhost:3000/inscripcion</code> (o el puerto que indique Next si 3000 está ocupado).</p>
+    <p>Trabajar en carpeta local; en Google Drive <code>npm install</code> suele fallar.</p>
+
+    <h2>9. Referencias</h2>
+    <ul>
+      <li>Repositorio del grupo: <a href="https://github.com/Martinrinaudo/ISW_Grupo2_4k4_2026">ISW_Grupo2_4k4_2026</a></li>
+      <li>Proyecto TP6: <code>Trabajos Prácticos/Trabajos Prácticos Grupales/TP6/ecoharmony-tdd/</code></li>
+      <li>Resumen en repo: <code>docs/decisiones-tp6-tdd.md</code></li>
+      <li>US: <code>tp2-ecoharmony/us-inscribir-actividad.md</code> (material del grupo / apuntes)</li>
+      <li>Convención SCM del grupo: entregable PDF <code>ISW_TP_6.pdf</code> en carpeta <code>TP6</code></li>
+    </ul>
+  </div>
+</body>
+</html>
