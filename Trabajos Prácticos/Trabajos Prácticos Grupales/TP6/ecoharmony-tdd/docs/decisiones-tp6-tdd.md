@@ -1,5 +1,7 @@
 # Decisiones TP6 — Inscribirme a actividad
 
+**Versión para entrega e impresión:** [`ISW_TP_6.html`](ISW_TP_6.html) (generar `ISW_TP_6.pdf` desde el navegador o usar el PDF en `TP6/ISW_TP_6.pdf`).
+
 Grupo 2 · EcoHarmony
 
 ## US
