@@ -1,0 +1,19 @@
+0 verbose cli /home/fede/.nvm/versions/node/v20.19.6/bin/node /home/fede/.nvm/versions/node/v20.19.6/bin/npm
+1 info using npm@10.8.2
+2 info using node@v20.19.6
+3 silly config load:file:/home/fede/.nvm/versions/node/v20.19.6/lib/node_modules/npm/npmrc
+4 silly config load:file:/home/fede/Ingenieria en Sistemas/Ingenieria y Calidad de Software/Trabajos Practicos/ISW_Grupo2_4k4_2026/Trabajos Prácticos/Trabajos Prácticos Grupales/TP6/ecoharmony-tdd/.npmrc
+5 silly config load:file:/home/fede/.npmrc
+6 silly config load:file:/home/fede/.nvm/versions/node/v20.19.6/etc/npmrc
+7 verbose title npm test
+8 verbose argv "test"
+9 verbose logfile logs-max:10 dir:/home/fede/Ingenieria en Sistemas/Ingenieria y Calidad de Software/Trabajos Practicos/ISW_Grupo2_4k4_2026/Trabajos Prácticos/Trabajos Prácticos Grupales/TP6/ecoharmony-tdd/C:\Users\Matias\AppData\Local\npm-cache/_logs/2026-06-02T21_46_42_078Z-
+10 verbose logfile /home/fede/Ingenieria en Sistemas/Ingenieria y Calidad de Software/Trabajos Practicos/ISW_Grupo2_4k4_2026/Trabajos Prácticos/Trabajos Prácticos Grupales/TP6/ecoharmony-tdd/C:\Users\Matias\AppData\Local\npm-cache/_logs/2026-06-02T21_46_42_078Z-debug-0.log
+11 silly logfile start cleaning logs, removing 2 files
+12 silly logfile done cleaning log files
+13 verbose cwd /home/fede/Ingenieria en Sistemas/Ingenieria y Calidad de Software/Trabajos Practicos/ISW_Grupo2_4k4_2026/Trabajos Prácticos/Trabajos Prácticos Grupales/TP6/ecoharmony-tdd
+14 verbose os Linux 6.8.0-124-generic
+15 verbose node v20.19.6
+16 verbose npm  v10.8.2
+17 verbose exit 0
+18 info ok
